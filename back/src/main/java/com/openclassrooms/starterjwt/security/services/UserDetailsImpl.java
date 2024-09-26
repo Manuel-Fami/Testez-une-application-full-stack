@@ -12,10 +12,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Builder
 @AllArgsConstructor
 @Getter
+@Setter
 public class UserDetailsImpl implements UserDetails {
   private static final long serialVersionUID = 1L;
 
@@ -64,5 +66,10 @@ public class UserDetailsImpl implements UserDetails {
       return false;
     UserDetailsImpl user = (UserDetailsImpl) o;
     return Objects.equals(id, user.id);
-  } 
+  }
+
+  public UserDetailsImpl() {
+    //TODO Auto-generated constructor stub
+  }
+
 }
