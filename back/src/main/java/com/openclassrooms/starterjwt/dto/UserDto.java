@@ -30,7 +30,7 @@ public class UserDto {
     private String firstName;
 
     @NonNull
-    private boolean admin;
+    private Boolean admin;
 
     @JsonIgnore
     @Size(max = 120)
@@ -39,4 +39,8 @@ public class UserDto {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    public Boolean isAdmin() {
+        return admin;
+    }
 }

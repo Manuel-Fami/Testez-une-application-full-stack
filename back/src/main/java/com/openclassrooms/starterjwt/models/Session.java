@@ -31,7 +31,7 @@ public class Session {
     private Long id;
 
     @NotBlank
-    @Size(max = 50)
+    @Size(max = 30)
     private String name;
 
     @NotNull
