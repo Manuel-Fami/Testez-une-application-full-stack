@@ -11,11 +11,14 @@ Ce projet est une application Spring Boot qui permet de gérer le back end d'un 
 
 ## Installations
 
-- Installer les dépendances : mvn install
+- Installer les dépendances :
+  > mvn install
 
 ## Lancement des tests unitaires
 
-Pour exécuter les tests unitaires, utiliser la commande suivante : mvn test
+Pour exécuter les tests unitaires, utiliser la commande suivante :
+
+> mvn test
 
 Cela lancera tous les tests dans le projet et affichera les résultats dans la console.
 
@@ -23,14 +26,9 @@ Cela lancera tous les tests dans le projet et affichera les résultats dans la c
 
 Pour générer des rapports de couverture de code :
 
-- Exécutez les tests et génèrez le rapport de couverture avec la commande suivante : mvn clean test
+- Exécutez les tests et génèrez le rapport de couverture avec la commande suivante :
+  > mvn clean test
 
 Une fois le processus terminé, le rapport de couverture ser disponible dans le répertoir suivant : target/site/jacoco
 
-- Ouvrez le fichier index.html dans un navigateur pour visualiser le rapport.
-
-For launch and generate the jacoco code coverage:
-
-> mvn clean test
-
-GL
+- Ouvrez le fichier _index.html_ dans un navigateur pour visualiser le rapport.
