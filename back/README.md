@@ -4,12 +4,19 @@
 
 Ce projet est une application Spring Boot qui permet de gérer le back end d'un site du yoga. Le site permet aux clients potentiels de s'inscrire à des sessions de yoga.
 
+Ce projet à pour objectif de tester l'applcation.
+Suivez les étapes ci-dessous pour réaliser tester le projet.
+
 ## Prérequis
 
 - java 11
 - maeven
 
 ## Installations
+
+Clonez le repository :
+
+> git clone https://github.com/Manuel-Fami/yoga-app.git
 
 - Installer les dépendances :
   > mvn install
