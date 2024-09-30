@@ -1,28 +1,31 @@
-#Yoga App!#
+#Yoga App!
 
-##Description##
+##Description
 
 The website allows potential clients to sign up for yoga sessions. This project is a Spring Boot application that manages the back end of a yoga website.
 The goal of this project is to test the application.
 
 Follow the steps below to test the project.
 
-##Prerequisites##
+##Prerequisites
 - Java 11
 - Maven
 - MySQL
 - Java
 - Node.js
 
-##Installations##
-###Database installation###
+##Installations
+
+###Database installation
+
 You must have MySQL installed beforehand. You can find the SQL script to create the tables in the following folder:
 
   > src/main/ressources/scripts/script.sql
 
 To connect, the environment variables are configured in the "application.properties" file. Feel free to modify these settings to match your MySQL environment.
 
-###Clone the repository:###
+###Clone the repository:
+
 Clone the repository to your local machine:
 
   > git clone https://github.com/Manuel-Fami/yoga-app.git
