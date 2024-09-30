@@ -10,25 +10,23 @@ import { SessionApiService } from '../../services/session-api.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-
   public onUpdate: boolean = false;
   public sessionForm: FormGroup | undefined;
   public teachers$ = this.teacherService.all();
-  private id: string | undefined;
+  public id: string | undefined;
 
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     private fb: FormBuilder,
     private matSnackBar: MatSnackBar,
-    private sessionApiService: SessionApiService,
+    public sessionApiService: SessionApiService,
     private sessionService: SessionService,
     private teacherService: TeacherService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   public ngOnInit(): void {
     if (!this.sessionService.sessionInformation!.admin) {
@@ -60,26 +58,17 @@ export class FormComponent implements OnInit {
     }
   }
 
-  private initForm(session?: Session): void {
+  public initForm(session?: Session): void {
     this.sessionForm = this.fb.group({
-      name: [
-        session ? session.name : '',
-        [Validators.required]
-      ],
+      name: [session ? session.name : '', [Validators.required]],
       date: [
         session ? new Date(session.date).toISOString().split('T')[0] : '',
-        [Validators.required]
+        [Validators.required],
       ],
-      teacher_id: [
-        session ? session.teacher_id : '',
-        [Validators.required]
-      ],
+      teacher_id: [session ? session.teacher_id : '', [Validators.required]],
       description: [
         session ? session.description : '',
-        [
-          Validators.required,
-          Validators.max(2000)
-        ]
+        [Validators.required, Validators.max(2000)],
       ],
     });
   }
