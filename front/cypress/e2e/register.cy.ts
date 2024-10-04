@@ -25,6 +25,37 @@ describe('register spec', () => {
     cy.get('button[type=submit]').should('be.disabled');
   });
 
+  // ----------------------------------------------------------------
+  it('should display an error if the required first name field is not filled', () => {
+    // When
+    cy.get('input[formControlName=lastName]').type(newUser.lastName);
+    cy.get('input[formControlName=firstName]').type(`{enter}`);
+    cy.get('input[formControlName="email"]').type(newUser.email);
+    cy.get('input[formControlName=password]').type(newUser.password);
+
+    // Then
+    cy.get('input[formControlName="firstName"]').should(
+      'have.class',
+      'ng-invalid'
+    );
+    cy.get('button[type=submit]').should('be.disabled');
+  });
+
+  it('should display an error if the required last name field is not filled', () => {
+    // When
+    cy.get('input[formControlName=lastName]').type(`{enter}`);
+    cy.get('input[formControlName=firstName]').type(newUser.firstName);
+    cy.get('input[formControlName="email"]').type(newUser.email);
+    cy.get('input[formControlName=password]').type(newUser.password);
+
+    // Then
+    cy.get('input[formControlName="lastName"]').should(
+      'have.class',
+      'ng-invalid'
+    );
+    cy.get('button[type=submit]').should('be.disabled');
+  });
+
   it('should display an error if the register service returns an error', () => {
     // Given
     cy.intercept('POST', '/api/auth/register', {

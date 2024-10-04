@@ -102,4 +102,43 @@ describe('Login spec', () => {
 
     cy.get('.error').should('contain', 'An error occurred');
   });
+
+  it('should toggle password visibility', () => {
+    // Le mot de passe doit être caché par défaut
+    cy.get('input[formControlName=password]').should(
+      'have.attr',
+      'type',
+      'password'
+    );
+
+    // Clique sur le bouton pour afficher le mot de passe
+    cy.get('button[aria-label="Hide password"]').click();
+    cy.get('input[formControlName=password]').should(
+      'have.attr',
+      'type',
+      'text'
+    );
+
+    // Clique à nouveau pour masquer le mot de passe
+    cy.get('button[aria-label="Hide password"]').click();
+    cy.get('input[formControlName=password]').should(
+      'have.attr',
+      'type',
+      'password'
+    );
+  });
+
+  it('should disable submit button when form is invalid', () => {
+    // Vérifie que le bouton est désactivé au départ
+    cy.get('button[type=submit]').should('be.disabled');
+
+    // Remplit un champ partiellement valide et vérifie que le bouton est toujours désactivé
+    cy.get('input[formControlName=email]').type('yoga@studio');
+    cy.get('button[type=submit]').should('be.disabled');
+
+    // Termine de remplir les champs correctement et vérifie que le bouton est activé
+    cy.get('input[formControlName=email]').clear().type('yoga@studio.com');
+    cy.get('input[formControlName=password]').type('test!1234');
+    cy.get('button[type=submit]').should('not.be.disabled');
+  });
 });

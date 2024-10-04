@@ -140,6 +140,11 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+						<configuration>
+							<excludes>
+								<exclude>com/openclassroom/chatop/dto/**</exclude> <!-- Exclure les classes DTO -->
+							</excludes>
+						</configuration>
 					</execution>
 
 					<execution>
